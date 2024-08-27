@@ -1,7 +1,9 @@
-# TictacAvila
+ TictacVila
 John Mark Avila Midterm Quiz Tictac Toe Code Snippet
 A.) How to Play Tic-TacVila
+
 Objective:
+
 The goal of Tic-TacVila is to be the first player to align three of your symbols in a row DIAGONALLY. The game can be played in a series, where players compete to win a set number of series to become the Series  winner.
 
 Game Setup:
