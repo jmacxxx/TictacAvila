@@ -1,5 +1,7 @@
  TictacVila
+ 
 John Mark Avila Midterm Quiz Tictac Toe Code Snippet
+
 A.) How to Play Tic-TacVila
 
 Objective:
