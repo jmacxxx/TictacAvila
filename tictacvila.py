@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# Initialize scores and settings
+
 score_x = 0
 score_o = 0
 game_started = False
@@ -71,7 +71,7 @@ def start_game():
     player_o_symbol_menu.config(state=tk.DISABLED)
     series_menu.config(state=tk.DISABLED)
     
-    # Set the number of wins needed based on the series length
+   
     series_length = int(series_choice.get())
     wins_needed = (series_length // 2) + 1
     
@@ -132,7 +132,7 @@ def create_board():
         root.grid_rowconfigure(i+4, weight=1)  # Make the board rows expand
         root.grid_columnconfigure(i, weight=1)  # Make the board columns expand
 
-    # Add reset and continue buttons below the board
+  
     reset_button = tk.Button(root, text="Reset Game", command=lambda: reset_game(full_reset=True), bg="black", fg="red", font=("Arial", 16))
     reset_button.grid(row=7, column=0, columnspan=3, pady=10)
 
@@ -147,7 +147,7 @@ def on_symbol_change(*args):
     # Re-enable all options first
     enable_all_symbols()
 
-    # Disable the selected symbol in the other player's menu
+
     if selected_x_symbol in symbols:
         player_o_symbol_menu["menu"].entryconfig(symbols.index(selected_x_symbol), state="disabled")
     if selected_o_symbol in symbols:
@@ -159,14 +159,14 @@ def enable_all_symbols():
         player_x_symbol_menu["menu"].entryconfig(i, state="normal")
         player_o_symbol_menu["menu"].entryconfig(i, state="normal")
 
-# Initialize the Tkinter window
+
 root = tk.Tk()
 root.title("Tic-Tac-Toe")
 
-# Set the window background to black
+
 root.configure(bg="black")
 
-# Add entry fields for player names with red text and black background
+
 tk.Label(root, text="Player X Name:", bg="black", fg="red", font=("Arial", 12)).grid(row=0, column=0)
 player_x_name = tk.Entry(root, bg="black", fg="red", font=("Arial", 12))
 player_x_name.grid(row=0, column=1)
@@ -175,7 +175,7 @@ tk.Label(root, text="Player O Name:", bg="black", fg="red", font=("Arial", 12)).
 player_o_name = tk.Entry(root, bg="black", fg="red", font=("Arial", 12))
 player_o_name.grid(row=1, column=1)
 
-# Add dropdown menus for symbol selection
+
 symbols = [":)", ":(", "UwU", "OvO"]
 
 tk.Label(root, text="Player X Symbol:", bg="black", fg="red", font=("Arial", 12)).grid(row=0, column=2)
@@ -192,29 +192,29 @@ player_o_symbol.trace("w", on_symbol_change)  # Trace the variable to call the f
 player_o_symbol_menu = tk.OptionMenu(root, player_o_symbol, *symbols)
 player_o_symbol_menu.grid(row=1, column=3)
 
-# Add dropdown menu for series selection (Best of 3, 5, 7)
+
 tk.Label(root, text="Series Length:", bg="black", fg="red", font=("Arial", 12)).grid(row=2, column=0)
 series_choice = tk.StringVar(root)
 series_choice.set("3")  # Default value
 series_menu = tk.OptionMenu(root, series_choice, "3", "5", "7")
 series_menu.grid(row=2, column=1)
 
-# Add score labels
+
 label_score_x = tk.Label(root, text="Player X: 0 (Wins: 0)", bg="black", fg="red", font=("Arial", 12))
 label_score_x.grid(row=3, column=0, columnspan=2)
 
 label_score_o = tk.Label(root, text="Player O: 0 (Wins: 0)", bg="black", fg="red", font=("Arial", 12))
 label_score_o.grid(row=3, column=2, columnspan=2)
 
-# Add instructions label
+
 instruction_label = tk.Label(root, text="Diagonals only to win a round!!", bg="black", fg="red", font=("Arial", 12))
 instruction_label.grid(row=4, column=0, columnspan=4)
 
-# Add start game button, centered
+
 start_button = tk.Button(root, text="Start Game", command=start_game, bg="black", fg="red", font=("Arial", 16))
 start_button.grid(row=5, column=0, columnspan=4, pady=10)
 
-# Adjust the window size to better fit the game board
+
 root.geometry("600x450")
 
 root.mainloop()
